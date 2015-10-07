@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         String NAMESPACE = "http://wsPruebaSQL.org/";
-        String URL = "http://" + variablesPublicas.ip_adress + "/LoginUsuario.asmx";
+        String URL = "http://" + variablesPublicas.ip_adress + "/Service1.asmx";
         String METHOD_NAME = "LoginUsuario";
         String SOAP_ACTION = "http://wsPruebaSQL.org/LoginUsuario";
 
@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         envelope.dotNet = true;
         envelope.setOutputSoapObject(request);
 
-        Log.d("Mensaje 1", "HttpTransportSE");
+        Log.d("Mensaje 11", "HttpTransportSE");
         HttpTransportSE transportSE = new HttpTransportSE(URL);
 
         try {
@@ -81,31 +81,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             String ss = transportSE.requestDump;
 
-            Log.d("Mensaje 2", "request: " + transportSE.requestDump);
-            Log.d("Mensaje 3", "response: " + transportSE.responseDump);
+            Log.d("Mensaje 22", "request: " + transportSE.requestDump);
+            Log.d("Mensaje 33", "response: " + transportSE.responseDump);
 
             SoapPrimitive resultado_xml = (SoapPrimitive) envelope.getResponse();
             mensaje = resultado_xml.toString().toUpperCase();
 
-            Toast.makeText(MainActivity.this, mensaje, Toast.LENGTH_SHORT).show();
 
-            if (resultado_xml.equals("GRACIAS POR INICIAR SESION")){
+            if (mensaje.equals("GRACIAS POR INICIAR SESION")){
+                Log.d("Mensaje 44", "Inicio sesion");
                 variablesPublicas.usuario = etUsuario.getText().toString();
                 etUsuario.setText("");
                 etContrasena.setText("");
 
                 // Pasar a otro activiy
-                Intent intent = new Intent("android.intent.action.BarraActivity");
+                Intent intent = new Intent(MainActivity.this, BarraActivity.class);
                 startActivity(intent);
                 finish();
 
             }
         } catch (IOException e) {
-            Log.d("Mensaje 4", "IOException" + e.toString());
+            Log.d("Mensaje 55", "IOException " + e.toString());
         } catch (XmlPullParserException e) {
-            Log.d("Mensaje 5 ", "XmlPullParserException" + e.toString());
+            Log.d("Mensaje 66", "XmlPullParserException " + e.toString());
         } catch (Exception e) {
-            Log.d("Mensaje 6", "Exception" + e.toString());
+            Log.d("Mensaje 77", "Exception " + e.toString());
         }
     }
 }

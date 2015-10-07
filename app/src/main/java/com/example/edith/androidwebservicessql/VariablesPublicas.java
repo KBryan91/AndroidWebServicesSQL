@@ -5,5 +5,5 @@ package com.example.edith.androidwebservicessql;
  */
 public class VariablesPublicas {
     public static String usuario = "";
-    public static final String ip_adress = "192.168.1.38:8061";
+    public static String ip_adress = "192.168.1.38:8061";
 }
