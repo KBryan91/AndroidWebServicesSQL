@@ -22,8 +22,8 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     // Declaramos elementos del formulario
-    Button btnIngresar;
-    EditText etUsuario, etContrasena;
+    private Button btnIngresar;
+    private EditText etUsuario, etContrasena;
 
     public final int dialog_alert = 0;
     public String mensaje = "";
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Log.d("Mensaje r2", "Inicio sesion");
 
                 // Pasar a otro activiy
-                Intent intent = new Intent(MainActivity.this, BarraActivity.class);
+                Intent intent = new Intent("android.intent.action.BarraActivity");
                 Log.d("Mensaje r3", "Inicio sesion");
                 startActivity(intent);
                 Log.d("Mensaje r4", "Inicio sesion");

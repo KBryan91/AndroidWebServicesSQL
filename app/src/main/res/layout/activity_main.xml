@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:orientation="vertical"
-    android:background="@color/amarillo"
+    android:background="@color/plomo"
     tools:context=".MainActivity">
 
     <ImageView
@@ -41,7 +41,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Usuario"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:singleLine="true"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -56,7 +57,7 @@
             android:layout_height="wrap_content"
             android:hint="Contraseña"
             android:gravity="center"
-            />
+            android:singleLine="true"/>
 
         <Button
             android:id="@+id/btnIngresar"
