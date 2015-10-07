@@ -89,15 +89,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
             if (mensaje.equals("GRACIAS POR INICIAR SESION")){
-                Log.d("Mensaje 44", "Inicio sesion");
+                Log.d("Mensaje r1", "Inicio sesion");
                 variablesPublicas.usuario = etUsuario.getText().toString();
                 etUsuario.setText("");
                 etContrasena.setText("");
+                Log.d("Mensaje r2", "Inicio sesion");
 
                 // Pasar a otro activiy
                 Intent intent = new Intent(MainActivity.this, BarraActivity.class);
+                Log.d("Mensaje r3", "Inicio sesion");
                 startActivity(intent);
+                Log.d("Mensaje r4", "Inicio sesion");
                 finish();
+
 
             }
         } catch (IOException e) {

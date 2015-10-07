@@ -4,13 +4,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 /**
  * Created by Edith on 06/10/2015.
  */
-public class BarraActivity extends Activity {
+public class BarraActivity extends AppCompatActivity {
     // Declaramos elementos del formulario
     ProgressBar pbBarra;
     TextView tvPorcentaje;
