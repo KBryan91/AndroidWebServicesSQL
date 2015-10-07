@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if (mensaje.equals("GRACIAS POR INICIAR SESION")){
                 Log.d("Mensaje r1", "Inicio sesion");
                 variablesPublicas.usuario = etUsuario.getText().toString();
+
                 etUsuario.setText("");
                 etContrasena.setText("");
                 Log.d("Mensaje r2", "Inicio sesion");

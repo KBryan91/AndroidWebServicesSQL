@@ -29,7 +29,11 @@ public class BarraActivity extends AppCompatActivity {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
+    }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
 
         Log.d("Mensaje 22", "Pasa2");
         pbBarra = (ProgressBar) findViewById(R.id.pbBarra);
@@ -41,12 +45,7 @@ public class BarraActivity extends AppCompatActivity {
 
         Log.d("Mensaje 11", "Pasa1");
         // Iniciamos la tarea en segundo plano
-        new TareaSegundoPlano().execute(10);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
+        new TareaSegundoPlano().execute(5);
      }
 
     // Ejecutara el codigo en segundo plano
