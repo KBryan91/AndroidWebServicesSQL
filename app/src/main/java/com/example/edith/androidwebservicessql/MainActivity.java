@@ -5,12 +5,9 @@ import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.SoapObject;
 import org.ksoap2.serialization.SoapPrimitive;
@@ -25,11 +22,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnIngresar;
     private EditText etUsuario, etContrasena;
 
-    public final int dialog_alert = 0;
+    // Declaramos la variable mensaje
     public String mensaje = "";
-
-    // Instancia a la clase VariablesPublicas
-    VariablesPublicas variablesPublicas = new VariablesPublicas();
 
 
     @Override
@@ -58,7 +52,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         String NAMESPACE = "http://wsPruebaSQL.org/";
-        String URL = "http://" + variablesPublicas.ip_adress + "/Service1.asmx";
+        String URL = "http://" + VariablesPublicas.ip_adress + "/Service1.asmx";
         String METHOD_NAME = "LoginUsuario";
         String SOAP_ACTION = "http://wsPruebaSQL.org/LoginUsuario";
 
@@ -78,8 +72,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             transportSE.debug = true;
             transportSE.call(SOAP_ACTION, envelope);
 
-            String ss = transportSE.requestDump;
-
             Log.d("Mensaje 22", "request: " + transportSE.requestDump);
             Log.d("Mensaje 33", "response: " + transportSE.responseDump);
 
@@ -89,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             if (mensaje.equals("GRACIAS POR INICIAR SESION")){
                 Log.d("Mensaje r1", "Inicio sesion");
-                variablesPublicas.usuario = etUsuario.getText().toString();
+                VariablesPublicas.usuario = etUsuario.getText().toString();
 
                 etUsuario.setText("");
                 etContrasena.setText("");
